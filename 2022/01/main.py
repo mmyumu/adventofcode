@@ -17,12 +17,7 @@ def run():
             except ValueError:
                 logger.exception("Cannot get calories from line")
         else:
-            if len(calories) == 0:
-                max_calory = 0
-            else:
-                max_calory = calories[0]
-
-            logger.info(f"Elf number {elf_number} is carrying {current_calories} which is more than the previous maximum ({max_calory}) ")
+            logger.info(f"Elf number {elf_number} is carrying {current_calories}")
             calories.append(current_calories)
             calories = sorted(calories, reverse=True)
                 
