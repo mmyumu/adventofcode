@@ -1,13 +1,11 @@
+from utils import Executor
 from logger import logger
 
 
-def run():
+def run(lines):
     """
     Entrypoint
     """
-    with open('2022/01/input.txt', 'r', encoding="utf-8") as f:
-        lines = f.read().splitlines()
-
     calories = []
     current_calories = 0
     elf_number = 1
@@ -31,4 +29,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    executor = Executor('aoc_2022/aoc_01/input.txt')
+    executor.execute(run)

@@ -1,15 +1,7 @@
+from utils import Executor
+from aoc_2022.aoc_02.common import INPUTS1, SCORE_PER_INPUT, ROCK, PAPER, SCISSORS, Resolver
 from logger import logger
 
-
-ROCK = "rock"
-PAPER = "paper"
-SCISSORS = "scissors"
-
-INPUTS1 = {
-    "A": ROCK,
-    "B": PAPER,
-    "C": SCISSORS
-}
 
 INPUTS2 = {
     "X": ROCK,
@@ -17,13 +9,8 @@ INPUTS2 = {
     "Z": SCISSORS
 }
 
-SCORE_PER_INPUT = {
-    ROCK: 1,
-    PAPER: 2,
-    SCISSORS: 3
-}
 
-class ShiFuMiResolver:
+class ShiFuMiResolver(Resolver):
     """
     Resolve ShiFuMi games
     """
@@ -67,14 +54,14 @@ class ShiFuMiResolver:
                 return 0 + input_score
 
 
-def run():
+def resolve_lines(lines):
     """
-    Entrypoint
+    Resolve input lines
+
+    Args:
+        lines (_type_): _description_
     """
     resolver = ShiFuMiResolver()
-
-    with open('2022/02/input.txt', 'r', encoding="utf-8") as f:
-        lines = f.read().splitlines()
 
     total_score = 0
     for line in lines:
@@ -85,4 +72,6 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    executor = Executor('aoc_2022/aoc_02/input.txt')
+    executor.execute(resolve_lines)
+
