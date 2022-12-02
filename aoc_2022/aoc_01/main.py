@@ -24,7 +24,7 @@ def run(lines):
             current_calories = 0
             elf_number += 1
 
-    logger.info(f"Part one: Elf number {elf_number} is carrying {calories[0]} which is the maximum")
+    logger.info(f"Part one: An elf is carrying {calories[0]} which is the maximum")
     logger.info(f"Part two: Sum of calories carried by top three elves: {sum(calories[:3])}")
 
 
