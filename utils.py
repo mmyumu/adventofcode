@@ -1,3 +1,6 @@
+"""Utils common for whole AOC"""
+
+
 class Executor:
     """
     Common executor
