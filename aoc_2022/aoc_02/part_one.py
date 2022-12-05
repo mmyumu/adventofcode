@@ -1,5 +1,5 @@
 from logger import logger
-from utils import Executor
+from utils import FileExecutor
 from aoc_2022.aoc_02.common import INPUTS1, SCORE_PER_INPUT, ROCK, PAPER, SCISSORS, Resolver
 
 
@@ -72,5 +72,5 @@ def resolve_lines(lines):
 
 
 if __name__ == "__main__":
-    executor = Executor('aoc_2022/aoc_02/input.txt')
+    executor = FileExecutor('aoc_2022/aoc_02/input.txt')
     executor.execute(resolve_lines)

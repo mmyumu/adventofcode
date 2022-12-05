@@ -1,8 +1,13 @@
-from utils import Executor
+from utils import FileExecutor
 from logger import logger
 
 
-def run(lines):
+def run():
+    executor = FileExecutor('aoc_2022/aoc_01/input.txt')
+    executor.execute(treat_lines)
+
+
+def treat_lines(lines):
     """
     Entrypoint
     """
@@ -24,10 +29,13 @@ def run(lines):
             current_calories = 0
             elf_number += 1
 
-    logger.info(f"Part one: An elf is carrying {calories[0]} which is the maximum")
-    logger.info(f"Part two: Sum of calories carried by top three elves: {sum(calories[:3])}")
+    part_one_result = calories[0]
+    part_two_result = sum(calories[:3])
+    logger.info(f"Part one: An elf is carrying {part_one_result} which is the maximum")
+    logger.info(f"Part two: Sum of calories carried by top three elves: {part_two_result}")
+
+    return part_one_result, part_two_result
 
 
 if __name__ == "__main__":
-    executor = Executor('aoc_2022/aoc_01/input.txt')
-    executor.execute(run)
+    run()
