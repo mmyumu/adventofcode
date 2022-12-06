@@ -73,7 +73,12 @@ def resolve_lines(lines):
 
     logger.info(f"Total score: {total_score}")
 
+    return total_score
+
+
+def run():
+    executor = FileExecutor('aoc_2022/aoc_02/input.txt')
+    return executor.execute(resolve_lines)
 
 if __name__ == "__main__":
-    executor = FileExecutor('aoc_2022/aoc_02/input.txt')
-    executor.execute(resolve_lines)
+    run()

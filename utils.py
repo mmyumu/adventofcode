@@ -13,7 +13,7 @@ class Executor:
         Parse the input and call executor
         """
         lines = self._get_lines()
-        executor(self._split_lines(lines))
+        return executor(self._split_lines(lines))
 
     @abstractmethod
     def _get_lines(self):

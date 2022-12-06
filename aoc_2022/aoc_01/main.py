@@ -4,7 +4,7 @@ from logger import logger
 
 def run():
     executor = FileExecutor('aoc_2022/aoc_01/input.txt')
-    executor.execute(treat_lines)
+    return executor.execute(treat_lines)
 
 
 def treat_lines(lines):
