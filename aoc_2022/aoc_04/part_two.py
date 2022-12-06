@@ -3,15 +3,16 @@ from utils import DummyExecutor, FileExecutor
 from aoc_2022.aoc_04.common import RedundantPairComputer
 
 
-class FullyRedundantPairComputer(RedundantPairComputer):
+class PartlyRedundantPairComputer(RedundantPairComputer):
     """
-    Check whether the pair is fully redundant
+    Check whether the pair is partly redundant
 
     Args:
         RedundantPairComputer: Abstract redundant pair computer
     """
     def _compute_redundant(self, set1, set2):
-        return set1.issubset(set2) or set2.issubset(set1)
+        return len(set1.intersection(set2)) > 0
+
 
 
 def treat_lines(lines):
@@ -22,7 +23,7 @@ def treat_lines(lines):
         lines (str[]): lines as an array of strings
     """
 
-    computer = FullyRedundantPairComputer()
+    computer = PartlyRedundantPairComputer()
 
     priorities_sum = 0
     for line in lines:
