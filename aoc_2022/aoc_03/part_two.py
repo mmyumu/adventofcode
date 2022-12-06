@@ -3,16 +3,12 @@ from utils import DummyExecutor, FileExecutor
 from aoc_2022.aoc_03.common import PrioritiesComputer
 
 
-class RucksackPrioritiesComputer(PrioritiesComputer):
+class GroupPrioritiesComputer(PrioritiesComputer):
     """
     Compute the priorities of items in both compartments of a rucksack
     """
-    def _get_items(self, line):
-        half_index = int(len(line) / 2)
-        half1 = line[:half_index]
-        half2 = line[half_index:]
-
-        return self._get_same_items([half1, half2])
+    def _get_items(self, lines_group):
+        return self._get_same_items(lines_group)
 
 
 def treat_lines(lines):
@@ -23,11 +19,13 @@ def treat_lines(lines):
         lines (str[]): lines as an array of strings
     """
 
-    computer = RucksackPrioritiesComputer()
+    computer = GroupPrioritiesComputer()
 
     priorities_sum = 0
-    for line in lines:
-        priorities_sum += computer.compute(line)
+    for i, _ in enumerate(lines):
+        if i % 3 == 0:
+            priorities_sum += computer.compute(lines[i:i+3])
+        
 
     logger.info(f"Sum of priorities: {priorities_sum}")
 
@@ -52,6 +50,6 @@ def run_dummy():
     executor = DummyExecutor(dummy_lines)
     return executor.execute(treat_lines)
 
-
 if __name__ == "__main__":
+    run_dummy()
     run()

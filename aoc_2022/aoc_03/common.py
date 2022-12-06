@@ -6,7 +6,7 @@ class PrioritiesComputer:
     Compute the priorities of items.
     The way to select items must be implemented
     """
-    def compute(self, line):
+    def compute(self, input):
         """
         Compute the priority
 
@@ -16,12 +16,16 @@ class PrioritiesComputer:
         Returns:
             int: priority
         """
-        items = self._get_items(line)
+        items = self._get_items(input)
         return self._compute_priority(items)
 
     @abstractmethod
     def _get_items(self, line):
         pass
+
+    @staticmethod
+    def _get_same_items(items_lists):
+        return set.intersection(*map(set, items_lists))
 
     @staticmethod
     def _compute_priority(items):

@@ -1,5 +1,9 @@
 """Utils common for whole AOC"""
 from abc import abstractmethod
+import time
+
+from logger import logger
+
 
 class Executor:
     """
@@ -8,12 +12,12 @@ class Executor:
     def __init__(self) -> None:
         pass
 
-    def execute(self, executor, lines=1):
+    def execute(self, executor):
         """
         Parse the input and call executor
         """
         lines = self._get_lines()
-        return executor(self._split_lines(lines))
+        return executor(lines)
 
     @abstractmethod
     def _get_lines(self):
@@ -23,15 +27,6 @@ class Executor:
         Returns:
             str | str[]: lines to work on
         """
-
-    @staticmethod
-    def _split_lines(lines):
-        if lines==1:
-            pass
-        else:
-            pass
-
-        return lines
 
 
 class FileExecutor(Executor):
@@ -43,7 +38,10 @@ class FileExecutor(Executor):
 
     def _get_lines(self):
         with open(self._input_path, 'r', encoding="utf-8") as f:
+            b = time.time()
             lines = f.read().splitlines()
+            e = time.time()
+            logger.info(f"Time to read file: {e - b}")
 
         return lines
 
