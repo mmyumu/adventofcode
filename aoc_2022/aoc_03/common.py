@@ -1,6 +1,16 @@
 from abc import abstractmethod
 
 
+DUMMY_LINES = [
+    "vJrwpWtwJgWrhcsFMMfFFhFp",
+    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+    "PmmdzqPrVvPwwTWBwg",
+    "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+    "ttgJtRGJQctTZtZT",
+    "CrZsJsPPZsGzwwsLwLmpwMDw"
+]
+
+
 class PrioritiesComputer:
     """
     Compute the priorities of items.

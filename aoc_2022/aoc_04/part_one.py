@@ -1,6 +1,6 @@
 from logger import logger
 from utils import DummyExecutor, FileExecutor
-from aoc_2022.aoc_04.common import RedundantPairComputer
+from aoc_2022.aoc_04.common import DUMMY_LINES, RedundantPairComputer
 
 
 class FullyRedundantPairComputer(RedundantPairComputer):
@@ -40,16 +40,7 @@ def run():
 
 
 def run_dummy():
-    dummy_lines = [
-        "2-4,6-8",
-        "2-3,4-5",
-        "5-7,7-9",
-        "2-8,3-7",
-        "6-6,4-6",
-        "2-6,4-8"
-    ]
-
-    executor = DummyExecutor(dummy_lines)
+    executor = DummyExecutor(DUMMY_LINES)
     return executor.execute(treat_lines)
 
 

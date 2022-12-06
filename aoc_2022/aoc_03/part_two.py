@@ -1,6 +1,6 @@
 from logger import logger
 from utils import DummyExecutor, FileExecutor
-from aoc_2022.aoc_03.common import PrioritiesComputer
+from aoc_2022.aoc_03.common import DUMMY_LINES, PrioritiesComputer
 
 
 class GroupPrioritiesComputer(PrioritiesComputer):
@@ -38,16 +38,7 @@ def run():
 
 
 def run_dummy():
-    dummy_lines = [
-        "vJrwpWtwJgWrhcsFMMfFFhFp",
-        "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-        "PmmdzqPrVvPwwTWBwg",
-        "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-        "ttgJtRGJQctTZtZT",
-        "CrZsJsPPZsGzwwsLwLmpwMDw"
-    ]
-
-    executor = DummyExecutor(dummy_lines)
+    executor = DummyExecutor(DUMMY_LINES)
     return executor.execute(treat_lines)
 
 if __name__ == "__main__":
