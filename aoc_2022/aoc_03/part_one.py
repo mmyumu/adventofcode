@@ -39,8 +39,15 @@ def treat_lines(lines):
 
     logger.info(f"Sum of priorities: {priorities_sum}")
 
+    return priorities_sum
 
-if __name__ == "__main__":
+
+def run():
+    executor = FileExecutor('aoc_2022/aoc_03/input.txt')
+    return executor.execute(treat_lines)
+
+
+def run_dummy():
     dummy_lines = [
         "vJrwpWtwJgWrhcsFMMfFFhFp",
         "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
@@ -51,7 +58,8 @@ if __name__ == "__main__":
     ]
 
     executor = DummyExecutor(dummy_lines)
-    executor.execute(treat_lines)
+    return executor.execute(treat_lines)
 
-    executor = FileExecutor('aoc_2022/aoc_03/input.txt')
-    executor.execute(treat_lines)
+
+if __name__ == "__main__":
+    run()
