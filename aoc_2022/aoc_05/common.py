@@ -1,4 +1,5 @@
 from logger import logger
+from abc import abstractmethod
 
 
 DUMMY_LINES = [
@@ -87,9 +88,6 @@ class Crane:
             top_crates += crates_col[len(crates_col) - 1]
         return top_crates
 
+    @abstractmethod
     def _operate(self, operation):
-        logger.info(f"Execute operation: {operation}")
-
-        for _ in range(operation.number):
-            crate = self._crates[operation.src - 1].pop()
-            self._crates[operation.dst - 1].append(crate)
+        pass

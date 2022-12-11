@@ -3,16 +3,16 @@ from utils import DummyExecutor, FileExecutor
 from aoc_2022.aoc_05.common import DUMMY_LINES, CratesReader, Crane
 
 
-class CrateMover9000(Crane):
+class CrateMover9001(Crane):
     def __init__(self, crates, operations):
-        super(CrateMover9000, self).__init__(crates, operations)
+        super(CrateMover9001, self).__init__(crates, operations)
 
     def _operate(self, operation):
         logger.info(f"Execute operation: {operation}")
 
-        for _ in range(operation.number):
-            crate = self._crates[operation.src - 1].pop()
-            self._crates[operation.dst - 1].append(crate)
+        crates_to_move = self._crates[operation.src - 1][-operation.number:]
+        del self._crates[operation.src - 1][-operation.number:]
+        self._crates[operation.dst - 1].extend(crates_to_move)
 
 
 def treat_lines(lines):
@@ -24,7 +24,7 @@ def treat_lines(lines):
     """
 
     reader = CratesReader(lines)
-    crane = CrateMover9000(reader.get_crates().copy(), reader.get_operations())
+    crane = CrateMover9001(reader.get_crates().copy(), reader.get_operations())
 
     crane.operate()
     top_crates = crane.get_top_crates()
