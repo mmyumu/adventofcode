@@ -4,11 +4,11 @@ from aoc_2022.aoc_05.part_one import run as run1, run_dummy as run_dummy1
 
 def test_part_one():
     result = run_dummy1()
-    assert result == 2
+    assert result == "CMZ"
 
 
     result = run1()
-    assert result == 538
+    assert result == "TWSGQHNHL"
 
 
 # def test_part_two():
